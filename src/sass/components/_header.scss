@@ -1,0 +1,17 @@
+.header {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    @extend %flex-center
+}
+
+.logo {
+    @include mobile {
+        width: 104px;
+        height: 26px;
+    }
+}
+
+.btn-wrapper {
+    margin-left: 14px;
+}
+
