@@ -1,0 +1,8 @@
+.users-list {
+    text-align: center;
+}
+
+.heading {
+    margin-top: 80px;
+    @extend %heading-font-size
+}

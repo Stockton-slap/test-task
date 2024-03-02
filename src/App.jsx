@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import UsersList from "./components/UsersList";
 import "./sass/main.scss";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <UsersList />
       </main>
     </>
   );
