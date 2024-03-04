@@ -41,7 +41,7 @@ export const validationSchema = Yup.object({
             );
           };
           img.onerror = function () {
-            reject(new Error("Failed to load the image"));
+            resolve(null);
           };
         });
       }

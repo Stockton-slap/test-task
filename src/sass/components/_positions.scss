@@ -4,6 +4,8 @@
 
     &__list {
         margin-top: 10px;
+        display: inline-flex;
+        flex-direction: column;
     }
 
     &__label {

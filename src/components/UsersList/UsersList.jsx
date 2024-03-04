@@ -1,19 +1,20 @@
 import React, { useEffect, useMemo, useState } from "react";
-import api from "../../apiConfig";
 import UsersItem from "../UsersItem";
 import Button from "../common/Button";
-import Loader from "../Loader";
-import Error from "../Error";
+import Loader from "../common/Loader";
+import Error from "../common/Error";
+import { fetchData } from "../../api/apiService";
 
 export default function UsersList({
   isUserRequestNeeded,
   setIsUserRequestNeeded,
+  page,
+  setPage,
 }) {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [totalUsers, setTotalUsers] = useState(null);
-  const [page, setPage] = useState(1);
 
   const memoizedSortedUsers = useMemo(() => {
     return users.sort(
@@ -26,10 +27,14 @@ export default function UsersList({
     const getUsets = async () => {
       try {
         if (isUserRequestNeeded) {
-          const { data } = await api.get(`/users?page=${page}&count=6`);
-
+          const data = await fetchData(`/users?page=${page}&count=6`);
           setTotalUsers(data.total_users);
-          setUsers((prev) => [...prev, ...data.users]);
+
+          if (page === 1) {
+            setUsers(data.users);
+          } else {
+            setUsers((prev) => [...prev, ...data.users]);
+          }
         }
       } catch (e) {
         setError(e.message);

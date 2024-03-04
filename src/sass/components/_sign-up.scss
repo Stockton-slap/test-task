@@ -21,6 +21,11 @@
             margin-top: 40px;
             background-color: $disabled-color;
             color: $primary-color;
+            cursor: default;
+        }
+
+        &__image {
+            margin-top: 80px
         }
     
     @media screen and (min-width: 768px) {

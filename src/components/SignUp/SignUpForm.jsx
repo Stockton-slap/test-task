@@ -4,8 +4,10 @@ import { useFormik } from "formik";
 import { validationSchema } from "../../utils/validationSchema";
 import SignUpPositionSelection from "./SignUpPositionSelection";
 import Button from "../common/Button";
-import api from "../../apiConfig";
+import api from "../../api/apiConfig";
 import SignUpPhoto from "./SignUpPhoto";
+import { fetchData } from "../../api/apiService";
+import SignUpErrorMessage from "./SignUpErrorMessage";
 
 const initialValues = {
   name: "",
@@ -19,17 +21,15 @@ const setToken = (token) => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-export default function SignUpForm({ setIsUserRequestNeeded }) {
-  const [fileName, setFileName] = useState("");
+export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
+  const [isRegistered, setIsRegistered] = useState(false);
 
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const tokenResponse = await api.get("/token");
-        const token = tokenResponse.data.token;
-
+        const { token } = await fetchData("/token");
         setToken(token);
 
         const formData = new FormData();
@@ -39,14 +39,17 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
         formData.append("phone", values.phone);
         formData.append("photo", values.photo);
 
-        await api.post("/users", formData, {
+        await fetchData("/users", {
+          method: "post",
+          data: formData,
           headers: { Token: token, "Content-Type": "multipart/form-data" },
         });
+
+        setPage(1);
         resetForm({ ...initialValues });
-        setFileName("");
+        setIsRegistered(true);
         setIsUserRequestNeeded(true);
       } catch (e) {}
-      // console.log(e);
     },
   });
 
@@ -63,9 +66,8 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
           value={formik.values.name}
           onChange={formik.handleChange}
         />
-        {formik.touched.name && formik.errors.name ? (
-          <div>{formik.errors.name}</div>
-        ) : null}
+        <SignUpErrorMessage withTouched={true} name="name" formik={formik} />
+
         <Input
           type="email"
           placeholder="Email"
@@ -74,9 +76,8 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
           value={formik.values.email}
           onChange={formik.handleChange}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
+        <SignUpErrorMessage withTouched={true} name="email" formik={formik} />
+
         <Input
           type="tel"
           placeholder="Phone"
@@ -85,18 +86,12 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
           value={formik.values.phone}
           onChange={formik.handleChange}
         />
-        {formik.touched.phone && formik.errors.phone ? (
-          <div>{formik.errors.phone}</div>
-        ) : null}
+        <SignUpErrorMessage withTouched={true} name="phone" formik={formik} />
       </div>
 
       <SignUpPositionSelection formik={formik} />
 
-      <SignUpPhoto
-        formik={formik}
-        setFileName={setFileName}
-        fileName={fileName}
-      />
+      <SignUpPhoto formik={formik} />
 
       <Button
         type="submit"
@@ -105,6 +100,13 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
         id="submitBtn"
         isDisabled={isDisabled}
       />
+
+      {isRegistered && (
+        <div className="form__image">
+          <h2>User successfully registered</h2>
+          <img src="/assets/success-image.svg" alt="Successfully registered" />
+        </div>
+      )}
     </form>
   );
 }

@@ -5,8 +5,8 @@ export default function Button({
   text,
   className,
   handleClick,
-  id,
-  isDisabled,
+  id = null,
+  isDisabled = false,
 }) {
   return (
     <button

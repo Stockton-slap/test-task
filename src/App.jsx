@@ -7,6 +7,7 @@ import "./sass/main.scss";
 
 function App() {
   const [isUserRequestNeeded, setIsUserRequestNeeded] = useState(true);
+  const [page, setPage] = useState(1);
 
   const handleSignUpClick = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -24,8 +25,13 @@ function App() {
         <UsersList
           isUserRequestNeeded={isUserRequestNeeded}
           setIsUserRequestNeeded={setIsUserRequestNeeded}
+          page={page}
+          setPage={setPage}
         />
-        <SignUpSection setIsUserRequestNeeded={setIsUserRequestNeeded} />
+        <SignUpSection
+          setIsUserRequestNeeded={setIsUserRequestNeeded}
+          setPage={setPage}
+        />
       </main>
     </>
   );

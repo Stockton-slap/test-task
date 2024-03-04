@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import api from "../../apiConfig";
 import Input from "../common/Input";
-import Loader from "../Loader";
-import Error from "../Error";
+import Loader from "../common/Loader";
+import Error from "../common/Error";
+import { fetchData } from "../../api/apiService";
 
 export default function SignUpPositionSelection({ formik }) {
   const [positions, setPositions] = useState([]);
@@ -12,7 +12,7 @@ export default function SignUpPositionSelection({ formik }) {
   useEffect(() => {
     const getPositions = async () => {
       try {
-        const { data } = await api.get("/positions");
+        const data = await fetchData("/positions");
         setPositions((prev) => [...prev, ...data.positions]);
       } catch (e) {
         setError(e.message);

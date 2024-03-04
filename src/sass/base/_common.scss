@@ -2,6 +2,22 @@
     padding-left: 16px;
     padding-right: 16px;
     
+    @media screen and (max-width: 767px) {
+        max-width: 360px;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 768px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        max-width: 1024px;
+    }
+
+    @media screen and (min-width: 2560px) {
+        max-width: 2560px;
+    }
+
     max-width: 1170px;
     margin: 0 auto;
 }
@@ -30,4 +46,11 @@
     }
 }
 
+.error-msg {
+    text-align: left;
+    color: $error-color;
+    font-size: 12px;
+    line-height: 1.16;
+    margin-top: 8px;
+}
 
