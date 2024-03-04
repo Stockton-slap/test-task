@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../../apiConfig";
 import Input from "../common/Input";
+import Loader from "../Loader";
+import Error from "../Error";
 
 export default function SignUpPositionSelection({ formik }) {
   const [positions, setPositions] = useState([]);
@@ -26,8 +28,8 @@ export default function SignUpPositionSelection({ formik }) {
     return (formik.values.position_id = Number(e.target.value));
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error...</div>;
+  if (loading) return <Loader />;
+  if (error) return <Error />;
 
   return (
     <div className="position">

@@ -9,6 +9,20 @@
 }
 
 .form {
+
+        &__btn {
+            margin-top: 40px;
+            &:hover {
+                background-color: $accent-color;
+            }
+        }
+
+        &__disabled {
+            margin-top: 40px;
+            background-color: $disabled-color;
+            color: $primary-color;
+        }
+    
     @media screen and (min-width: 768px) {
         width: 380px;
         margin: 0 auto;
@@ -34,9 +48,4 @@
     }
 }
 
-.form {
-    &__btn {
-        margin-top: 40px;
-    }
-}
 

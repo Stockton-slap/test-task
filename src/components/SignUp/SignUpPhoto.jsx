@@ -9,7 +9,7 @@ export default function SignUpPhoto({ formik, setFileName, fileName }) {
 
     fileInputRef.current.click();
   };
-  console.log(fileInputRef.current);
+
   return (
     <div className="photo">
       <label className="photo__label">

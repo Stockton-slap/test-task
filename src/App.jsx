@@ -8,11 +8,19 @@ import "./sass/main.scss";
 function App() {
   const [isUserRequestNeeded, setIsUserRequestNeeded] = useState(true);
 
+  const handleSignUpClick = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <Header />
+      <Header handleSignUpClick={handleSignUpClick} />
       <main>
-        <Hero />
+        <Hero handleSignUpClick={handleSignUpClick} />
         <UsersList
           isUserRequestNeeded={isUserRequestNeeded}
           setIsUserRequestNeeded={setIsUserRequestNeeded}

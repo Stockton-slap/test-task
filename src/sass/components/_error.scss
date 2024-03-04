@@ -1,0 +1,14 @@
+
+
+.error-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.error-text {
+    @extend %heading-font-size;
+    color: #cb1515;
+}

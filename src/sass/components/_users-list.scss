@@ -24,6 +24,12 @@
     &__btn {
             margin-top: 40px;
             width: 120px;
+
+            &:hover {
+                    background-color: $accent-color;
+                }
         }
+
+       
 }
 

@@ -27,3 +27,8 @@
     display: flex;
 }
 
+.header-btn {
+    &:hover {
+            background-color: $accent-color;
+        }
+}

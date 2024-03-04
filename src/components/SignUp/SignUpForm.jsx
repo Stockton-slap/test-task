@@ -50,6 +50,8 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
     },
   });
 
+  const isDisabled = !(formik.isValid && formik.dirty);
+
   return (
     <form onSubmit={formik.handleSubmit} className="form">
       <div className="input-wrapper">
@@ -96,7 +98,13 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
         fileName={fileName}
       />
 
-      <Button type="submit" text="Sign up" className="btn form__btn" />
+      <Button
+        type="submit"
+        text="Sign up"
+        className={`btn ${isDisabled ? "form__disabled" : "form__btn"}`}
+        id="submitBtn"
+        isDisabled={isDisabled}
+      />
     </form>
   );
 }

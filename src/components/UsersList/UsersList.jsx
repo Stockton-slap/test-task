@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import api from "../../apiConfig";
-import UsersItem from "../UsersItem/UsersItem";
+import UsersItem from "../UsersItem";
 import Button from "../common/Button";
+import Loader from "../Loader";
+import Error from "../Error";
 
 export default function UsersList({
   isUserRequestNeeded,
@@ -45,11 +47,11 @@ export default function UsersList({
     setIsUserRequestNeeded(true);
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error...</div>;
+  if (loading) return <Loader />;
+  if (error) return <Error />;
 
   return (
-    <section className="users-list container">
+    <section className="users-list container" id="usersSection">
       <h1 className="users-list__heading">Working with GET request</h1>
       <ul className="users-list__list">
         {memoizedSortedUsers.map((user) => (

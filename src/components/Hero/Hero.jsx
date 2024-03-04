@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../common/Button";
 
-export default function Hero() {
+export default function Hero({ handleSignUpClick }) {
   return (
     <section className="hero">
       <div className="hero__wrapper">
@@ -15,7 +15,13 @@ export default function Hero() {
           mind. They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </p>
-        <Button type="button" text="Sign up" className="btn hero__btn" />
+        <Button
+          type="button"
+          text="Sign up"
+          className="btn hero__btn"
+          id="sign-up"
+          handleClick={() => handleSignUpClick("signUpSection")}
+        />
       </div>
     </section>
   );
