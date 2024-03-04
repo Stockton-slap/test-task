@@ -3,24 +3,26 @@
     border-radius: 10px;
     padding: 20px;
     flex-direction: column;
-    @extend %flex-center;
+    @include flex-center;
 
-    &:not(:first-of-type) {
-            margin-top: 20px;
+    @media only screen and (min-width: 360px) and (max-width: 767px) {
+            &:not(:first-of-type) {
+                margin-top: 20px;
+            }
         }
 
+    &__img {
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+        }
+    
+    &__name {
+            margin-top: 20px;
+        }
+    
+    &__position {
+            margin-top: 20px;
+        }
 }
 
-.users-item__img {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-}
-
-.users-item__name {
-    margin-top: 20px;
-}
-
-.users-item__position {
-    margin-top: 20px;
-}

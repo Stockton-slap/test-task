@@ -1,0 +1,31 @@
+.photo {
+    margin-top: 40px;
+
+    &__container {
+        display: flex;
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+
+    &__btn {
+        border-right: 1px solid grey;
+        padding: 20px;
+    }
+
+    &__input {
+        width: 100%;
+        text-align: left;
+        padding: 20px;
+
+    &::before {
+        content: "Upload your photo";
+        color: #7E7E7E;
+    }
+    }
+
+   
+
+    &__file {
+        display: none;
+    }
+}

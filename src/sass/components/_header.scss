@@ -1,11 +1,22 @@
 .header {
     padding-top: 13px;
     padding-bottom: 13px;
-    @extend %flex-center
+    @include flex-center;
+
+    @media screen and (min-width: 768px) {
+        justify-content: space-between;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
 }
 
 .logo {
-    @include mobile {
+    @media screen and (min-width: 360px) {
         width: 104px;
         height: 26px;
     }
@@ -13,5 +24,6 @@
 
 .btn-wrapper {
     margin-left: 14px;
+    display: flex;
 }
 

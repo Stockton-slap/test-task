@@ -1,22 +1,33 @@
 .container {
     padding-left: 16px;
     padding-right: 16px;
+    
+    max-width: 1170px;
+    margin: 0 auto;
 }
 
 .btn {
     background-color: $primary-bg-color;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 80px;
     border: none;
+    width: 100px;
+    @extend %body-font-size;
 
     &:nth-child(2) {
-        margin-left: 4px;
+        margin-left: 12px;
     }
 }
 
-.input { }
+.input {
+    padding: 20px;
+    border: 1px solid #D0CFCF;
+    border-radius: 4px;
+
+    &::placeholder {
+        @extend %body-font-size
+    }
+}
 
 

@@ -1,16 +1,13 @@
 import React from "react";
+import Button from "../common/Button";
 
 export default function Header() {
   return (
     <header className="header container">
       <img src="/assets/Logo.svg" alt="Logo" className="logo" />
       <div className="btn-wrapper">
-        <button type="button" className="btn">
-          Users
-        </button>
-        <button type="button" className="btn">
-          Sign up
-        </button>
+        <Button type="button" text="Users" className="btn" />
+        <Button type="button" text="Sign up" className="btn" />
       </div>
     </header>
   );

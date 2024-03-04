@@ -1,0 +1,14 @@
+.position {
+    text-align: left;
+    margin-top: 40px;
+
+    &__list {
+        margin-top: 10px;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
