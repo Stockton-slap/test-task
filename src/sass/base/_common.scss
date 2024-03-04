@@ -46,11 +46,17 @@
     }
 }
 
-.error-msg {
+.message {
     text-align: left;
     color: $error-color;
     font-size: 12px;
     line-height: 1.16;
-    margin-top: 8px;
+    margin-top: 4px;
 }
 
+.hint {
+    color: $message-color;
+    font-size: 12px;
+    line-height: 1.16;
+    margin-left: 16px
+}

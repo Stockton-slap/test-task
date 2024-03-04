@@ -27,7 +27,7 @@ export default function SignUpPhoto({ formik }) {
             data-file-name={truncateText(fileName, 15)}
           />
         </div>
-        <SignUpErrorMessage withTouched={false} name="photo" formik={formik} />
+        <SignUpErrorMessage name="photo" formik={formik} />
 
         <Input
           type="file"

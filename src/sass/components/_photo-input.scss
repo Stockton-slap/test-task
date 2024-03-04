@@ -24,7 +24,7 @@
 
         &::before {
             content: "Upload your photo";
-            color: #7E7E7E;
+            color: $message-color;
         }
 
         &.has-file::before {
@@ -34,7 +34,7 @@
 
         &.no-file::before {
             content: "Upload your photo";
-            color: #7E7E7E;
+            color: $message-color;
         }
 }
 

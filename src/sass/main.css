@@ -42,12 +42,19 @@
   border: 1px solid #D0CFCF;
   border-radius: 4px;
 }
-.error-msg {
+.message {
   text-align: left;
   color: #CB3D40;
   font-size: 12px;
   line-height: 1.16;
-  margin-top: 8px;
+  margin-top: 4px;
+}
+
+.hint {
+  color: #7E7E7E;
+  font-size: 12px;
+  line-height: 1.16;
+  margin-left: 16px;
 }
 
 .error-text, .sign-up__heading, .users-list__heading, .hero__headline {

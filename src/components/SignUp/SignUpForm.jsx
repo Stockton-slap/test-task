@@ -55,58 +55,60 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
 
   const isDisabled = !(formik.isValid && formik.dirty);
 
-  return (
-    <form onSubmit={formik.handleSubmit} className="form">
-      <div className="input-wrapper">
-        <Input
-          type="text"
-          placeholder="Your name"
-          name="name"
-          className="input-wrapper__name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-        />
-        <SignUpErrorMessage withTouched={true} name="name" formik={formik} />
-
-        <Input
-          type="email"
-          placeholder="Email"
-          name="email"
-          className="input-wrapper__email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-        />
-        <SignUpErrorMessage withTouched={true} name="email" formik={formik} />
-
-        <Input
-          type="tel"
-          placeholder="Phone"
-          name="phone"
-          className="input-wrapper__phone"
-          value={formik.values.phone}
-          onChange={formik.handleChange}
-        />
-        <SignUpErrorMessage withTouched={true} name="phone" formik={formik} />
+  if (isRegistered)
+    return (
+      <div className="form__image">
+        <h2>User successfully registered</h2>
+        <img src="/assets/success-image.svg" alt="Successfully registered" />
       </div>
+    );
 
-      <SignUpPositionSelection formik={formik} />
+  return (
+    <>
+      <h1 className="sign-up__heading">Working with POST request</h1>
+      <form onSubmit={formik.handleSubmit} className="form">
+        <div className="input-wrapper">
+          <Input
+            type="text"
+            placeholder="Your name"
+            className="input-wrapper__name"
+            {...formik.getFieldProps("name")}
+          />
+          <SignUpErrorMessage name="name" formik={formik} />
 
-      <SignUpPhoto formik={formik} />
+          <Input
+            type="email"
+            placeholder="Email"
+            className="input-wrapper__email"
+            {...formik.getFieldProps("email")}
+          />
+          <SignUpErrorMessage name="email" formik={formik} />
 
-      <Button
-        type="submit"
-        text="Sign up"
-        className={`btn ${isDisabled ? "form__disabled" : "form__btn"}`}
-        id="submitBtn"
-        isDisabled={isDisabled}
-      />
-
-      {isRegistered && (
-        <div className="form__image">
-          <h2>User successfully registered</h2>
-          <img src="/assets/success-image.svg" alt="Successfully registered" />
+          <Input
+            type="tel"
+            placeholder="Phone"
+            className="input-wrapper__phone"
+            {...formik.getFieldProps("phone")}
+          />
+          <SignUpErrorMessage
+            name="phone"
+            formik={formik}
+            withHint="+38 (XXX) XXX - XX - XX"
+          />
         </div>
-      )}
-    </form>
+
+        <SignUpPositionSelection formik={formik} />
+
+        <SignUpPhoto formik={formik} />
+
+        <Button
+          type="submit"
+          text="Sign up"
+          className={`btn ${isDisabled ? "form__disabled" : "form__btn"}`}
+          id="submitBtn"
+          isDisabled={isDisabled}
+        />
+      </form>
+    </>
   );
 }

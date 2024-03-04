@@ -1,18 +1,9 @@
 import React from "react";
 
-export default function SignUpErrorMessage({
-  withTouched = true,
-  name,
-  formik,
-}) {
-  if (withTouched) {
-    return (
-      formik.touched[name] &&
-      formik.errors[name] && <p className="error-msg">{formik.errors[name]}</p>
-    );
-  }
+export default function SignUpErrorMessage({ name, formik, withHint }) {
+  const isError = formik.touched[name] && formik.errors[name];
 
-  return (
-    formik.errors[name] && <p className="error-msg">{formik.errors[name]}</p>
-  );
+  if (!isError && withHint) return <p className="message hint">{withHint}</p>;
+
+  return isError && <p className="message">{formik.errors[name]}</p>;
 }

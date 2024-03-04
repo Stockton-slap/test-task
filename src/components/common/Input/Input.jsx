@@ -9,6 +9,7 @@ export default function Input({
   onChange,
   fileInputRef,
   index,
+  onBlur,
 }) {
   return (
     <input
@@ -18,6 +19,7 @@ export default function Input({
       name={name}
       className={`${className} input`}
       onChange={onChange}
+      onBlur={onBlur}
       defaultChecked={type === "radio" && index === 0}
       ref={fileInputRef}
     />
