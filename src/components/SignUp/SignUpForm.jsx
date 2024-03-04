@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../common/Input";
 import { useFormik } from "formik";
 import { validationSchema } from "../../utils/validationSchema";
@@ -20,6 +20,8 @@ const setToken = (token) => {
 };
 
 export default function SignUpForm({ setIsUserRequestNeeded }) {
+  const [fileName, setFileName] = useState("");
+
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -40,7 +42,8 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
         await api.post("/users", formData, {
           headers: { Token: token, "Content-Type": "multipart/form-data" },
         });
-        resetForm({ ...initialValues, position_id: 1 });
+        resetForm({ ...initialValues });
+        setFileName("");
         setIsUserRequestNeeded(true);
       } catch (e) {}
       // console.log(e);
@@ -87,7 +90,11 @@ export default function SignUpForm({ setIsUserRequestNeeded }) {
 
       <SignUpPositionSelection formik={formik} />
 
-      <SignUpPhoto formik={formik} />
+      <SignUpPhoto
+        formik={formik}
+        setFileName={setFileName}
+        fileName={fileName}
+      />
 
       <Button type="submit" text="Sign up" className="btn form__btn" />
     </form>

@@ -5,6 +5,7 @@
         display: flex;
         border: 1px solid grey;
         border-radius: 4px;
+        cursor: pointer;
     }
 
     &__btn {
@@ -17,13 +18,21 @@
         text-align: left;
         padding: 20px;
 
-    &::before {
-        content: "Upload your photo";
-        color: #7E7E7E;
-    }
-    }
+        &::before {
+            content: "Upload your photo";
+            color: #7E7E7E;
+        }
 
-   
+        &.has-file::before {
+            content: attr(data-file-name);
+            color: #000;
+        }
+
+        &.no-file::before {
+            content: "Upload your photo";
+            color: #7E7E7E;
+        }
+}
 
     &__file {
         display: none;

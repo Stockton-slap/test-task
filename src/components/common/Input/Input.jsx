@@ -20,7 +20,6 @@ export default function Input({
       onChange={onChange}
       defaultChecked={type === "radio" && index === 0}
       ref={fileInputRef}
-      // {...(fileInputRef && { ref: fileInputRef })}
     />
   );
 }
