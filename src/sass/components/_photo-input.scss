@@ -24,17 +24,17 @@
 
         &::before {
             content: "Upload your photo";
-            color: $message-color;
+            @include text-color($message-color);
         }
 
         &.has-file::before {
             content: attr(data-file-name);
-            color: $secondary-color;
+            @include text-color($secondary-color);
         }
 
         &.no-file::before {
             content: "Upload your photo";
-            color: $message-color;
+            @include text-color($message-color);
         }
 }
 
@@ -46,7 +46,7 @@
 .error {
     border-width: 2px 2px 2px 2px;
     border-style: solid;
-    border-color: red; 
+    border-color: $error-color; 
 }
 
 .border {

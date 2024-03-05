@@ -25,22 +25,20 @@
     }
 
     &__headline {
-        color: $primary-color;
+        @include text-color($primary-color);
         @extend %heading-font-size;
     }
 
     &__paragraph {
         margin-top: 20px;
-        color: $primary-color;
+        @include text-color($primary-color);
         @extend %body-font-size
     }
 
     &__btn {
         margin-top: 40px;
 
-        &:hover {
-                background-color: $accent-color;
-            }
+        @include hover-background($accent-color);
     }
 }
 

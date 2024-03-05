@@ -1,5 +1,4 @@
 
-
 .error-wrapper {
     display: flex;
     flex-direction: column;
@@ -10,10 +9,10 @@
 
 .error-text {
     @extend %heading-font-size;
-    color: #cb1515;
+    @include text-color(#cb1515);
 }
 
 .error-msg {
     margin-top: 16px;
-    color: $message-color
+    @include text-color($message-color);
 }

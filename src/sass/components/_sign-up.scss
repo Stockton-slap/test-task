@@ -12,15 +12,14 @@
 
         &__btn {
             margin-top: 40px;
-            &:hover {
-                background-color: $accent-color;
-            }
+            
+            @include hover-background($accent-color);
         }
 
         &__disabled {
             margin-top: 40px;
             background-color: $disabled-color;
-            color: $primary-color;
+            @include text-color($primary-color);
             cursor: default;
         }
 

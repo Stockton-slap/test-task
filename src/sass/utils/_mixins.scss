@@ -3,3 +3,13 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin hover-background($color) {
+    &:hover {
+        background-color: $color;
+    }
+}
+
+@mixin text-color($color) {
+    color: $color;
+}

@@ -356,7 +356,7 @@ img {
 .error {
   border-width: 2px 2px 2px 2px;
   border-style: solid;
-  border-color: red;
+  border-color: #CB3D40;
 }
 
 .border {
