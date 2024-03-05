@@ -11,6 +11,7 @@ export default function UsersItem({ user }) {
         src={photo ? photo : defaultImage}
         alt="User"
         className="users-item__img"
+        loading="lazy"
       />
       <UsersDetails text={name} className={"name"} />
       <UsersDetails text={position} className={"position"} />
