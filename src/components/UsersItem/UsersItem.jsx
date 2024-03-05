@@ -1,5 +1,5 @@
 import React from "react";
-import UsersData from "../UsersDetails";
+import UsersDetails from "../UsersDetails";
 
 export default function UsersItem({ user }) {
   const { photo, name, position, email, phone } = user;
@@ -13,10 +13,10 @@ export default function UsersItem({ user }) {
         className="users-item__img"
         loading="lazy"
       />
-      <UsersData text={name} className={"name"} />
-      <UsersData text={position} className={"position"} />
-      <UsersData text={email} />
-      <UsersData text={phone} />
+      <UsersDetails text={name} className={"name"} />
+      <UsersDetails text={position} className={"position"} />
+      <UsersDetails text={email} />
+      <UsersDetails text={phone} />
     </li>
   );
 }
