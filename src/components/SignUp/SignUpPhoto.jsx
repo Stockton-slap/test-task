@@ -18,7 +18,7 @@ export default function SignUpPhoto({ formik }) {
   return (
     <div className="photo">
       <label className="photo__label">
-        <div className={`photo__container`} onClick={handleClick}>
+        <div className="photo__container" onClick={handleClick}>
           <div className={`photo__btn ${hasError && "error"}`}>Upload</div>
           <div
             className={`photo__input ${hasError && "error border"} ${
@@ -33,8 +33,10 @@ export default function SignUpPhoto({ formik }) {
           type="file"
           name="photo"
           onChange={(e) => {
-            formik.setFieldTouched("photo");
-            formik.setFieldValue("photo", e.currentTarget.files[0]);
+            // Wait until the field value is set in formik and then change the field on touched.
+            formik
+              .setFieldValue("photo", e.currentTarget.files[0])
+              .then(() => formik.setFieldTouched("photo"));
           }}
           className="photo__file"
           fileInputRef={fileInputRef}

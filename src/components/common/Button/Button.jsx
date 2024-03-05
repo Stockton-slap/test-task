@@ -5,7 +5,6 @@ export default function Button({
   text,
   className,
   handleClick,
-  id = null,
   isDisabled = false,
 }) {
   return (
@@ -13,8 +12,7 @@ export default function Button({
       type={type}
       className={`${className}`}
       onClick={handleClick}
-      id={id}
-      disabled={id === "submitBtn" && isDisabled}
+      disabled={isDisabled}
     >
       {text}
     </button>

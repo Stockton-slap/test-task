@@ -10,14 +10,12 @@ export default function Header({ handleSignUpClick }) {
           type="button"
           text="Users"
           className="btn header-btn"
-          id="users"
           handleClick={() => handleSignUpClick("usersSection")}
         />
         <Button
           type="button"
           text="Sign up"
           className="btn header-btn"
-          id="sign-up"
           handleClick={() => handleSignUpClick("signUpSection")}
         />
       </div>

@@ -119,7 +119,6 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
           type="submit"
           text="Sign up"
           className={`btn ${isDisabled ? "form__disabled" : "form__btn"}`}
-          id="submitBtn"
           isDisabled={isDisabled}
         />
       </form>

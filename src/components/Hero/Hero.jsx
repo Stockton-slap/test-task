@@ -19,7 +19,6 @@ export default function Hero({ handleSignUpClick }) {
           type="button"
           text="Sign up"
           className="btn hero__btn"
-          id="sign-up"
           handleClick={() => handleSignUpClick("signUpSection")}
         />
       </div>
