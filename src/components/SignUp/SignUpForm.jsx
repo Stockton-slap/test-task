@@ -69,7 +69,6 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
           src="/assets/success-image.svg"
           alt="Successfully registered"
           className="form__image"
-          loading="lazy"
         />
       </div>
     );
