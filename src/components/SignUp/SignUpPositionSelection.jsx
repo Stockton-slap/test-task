@@ -29,7 +29,7 @@ export default function SignUpPositionSelection({ formik }) {
   };
 
   if (loading) return <Loader />;
-  if (error) return <Error />;
+  if (error) return <Error error={error} />;
 
   return (
     <div className="position">

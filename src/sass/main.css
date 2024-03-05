@@ -132,6 +132,8 @@ img {
   .header {
     padding-left: 60px;
     padding-right: 60px;
+    max-width: 1170px;
+    margin: 0 auto;
   }
 }
 
@@ -159,8 +161,15 @@ img {
   max-width: 100%;
   text-align: center;
 }
+@media screen and (min-width: 1024px) {
+  .hero {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+}
 .hero__wrapper {
   padding: 30px 16px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 @media screen and (min-width: 768px) {
   .hero__wrapper {
@@ -204,6 +213,9 @@ img {
   .users-list__list {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
+    max-width: 1170px;
+    margin: 0 auto;
+    margin-top: 40px;
   }
 }
 .users-list__btn {
@@ -361,6 +373,11 @@ img {
 
 .error-text {
   color: #cb1515;
+}
+
+.error-msg {
+  margin-top: 16px;
+  color: #7E7E7E;
 }
 
 .loader {

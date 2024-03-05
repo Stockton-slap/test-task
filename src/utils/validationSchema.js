@@ -14,7 +14,7 @@ export const validationSchema = Yup.object({
     .max(320, "Must be at most 320 characters")
     .required("Required"),
   phone: Yup.string()
-    .matches(/^\+380\d{9}$/, "Invalid phone number")
+    .matches(/^\+380\d{9}$/, "Format must be +38 (XXX) XXX - XX - XX")
     .required("Required"),
   photo: Yup.mixed()
     .required("A file is required")

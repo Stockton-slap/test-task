@@ -8,6 +8,7 @@ import api from "../../api/apiConfig";
 import SignUpPhoto from "./SignUpPhoto";
 import { fetchData } from "../../api/apiService";
 import SignUpErrorMessage from "./SignUpErrorMessage";
+import Error from "../common/Error";
 
 const initialValues = {
   name: "",
@@ -23,6 +24,7 @@ const setToken = (token) => {
 
 export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
   const [isRegistered, setIsRegistered] = useState(false);
+  const [error, setError] = useState("");
 
   const formik = useFormik({
     initialValues,
@@ -49,11 +51,15 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
         resetForm({ ...initialValues });
         setIsRegistered(true);
         setIsUserRequestNeeded(true);
-      } catch (e) {}
+      } catch (e) {
+        setError(e.message);
+      }
     },
   });
 
   const isDisabled = !(formik.isValid && formik.dirty);
+
+  if (error) return <Error error={error} />;
 
   if (isRegistered)
     return (

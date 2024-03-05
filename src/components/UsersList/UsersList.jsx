@@ -53,7 +53,7 @@ export default function UsersList({
   };
 
   if (loading) return <Loader />;
-  if (error) return <Error />;
+  if (error) return <Error error={error} />;
 
   return (
     <section className="users-list container" id="usersSection">

@@ -6,9 +6,15 @@
     max-width: 100%;
     text-align: center;
 
+    @media screen and (min-width: 1024px) {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
     &__wrapper {
         padding: 30px 16px;
-
+        background-color: rgba(0, 0, 0, 0.5);
+        
         @media screen and (min-width: 768px) {
             padding: 80px 190px;
             }
