@@ -5,7 +5,12 @@ export default function Header({ handleSignUpClick }) {
   return (
     <header className="header container">
       <a href="/">
-        <img src="/assets/Logo.svg" alt="Logo" className="logo" />
+        <img
+          src="/assets/Logo.svg"
+          alt="Logo"
+          className="logo"
+          loading="lazy"
+        />
       </a>
       <div className="btn-wrapper">
         <Button

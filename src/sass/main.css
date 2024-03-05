@@ -308,6 +308,9 @@ img {
   display: inline-flex;
   flex-direction: column;
 }
+.position__item:not(:first-child) {
+  margin-top: 4px;
+}
 .position__label {
   display: flex;
   align-items: center;

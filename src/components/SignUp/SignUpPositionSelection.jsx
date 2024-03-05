@@ -36,7 +36,7 @@ export default function SignUpPositionSelection({ formik }) {
       <p>Select your position</p>
       <ul className="position__list">
         {positions.map(({ id, name }, index) => (
-          <li key={id}>
+          <li key={id} className="position__item">
             <label className="position__label">
               <Input
                 type="radio"

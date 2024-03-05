@@ -8,6 +8,12 @@
         flex-direction: column;
     }
 
+    &__item {
+        &:not(:first-child) {
+            margin-top: 4px;
+        }
+    }
+
     &__label {
         display: flex;
         align-items: center;

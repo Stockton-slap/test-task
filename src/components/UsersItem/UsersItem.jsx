@@ -1,5 +1,5 @@
 import React from "react";
-import UsersData from "../UsersData";
+import UsersData from "../UsersDetails";
 
 export default function UsersItem({ user }) {
   const { photo, name, position, email, phone } = user;
@@ -11,6 +11,7 @@ export default function UsersItem({ user }) {
         src={photo ? photo : defaultImage}
         alt="User"
         className="users-item__img"
+        loading="lazy"
       />
       <UsersData text={name} className={"name"} />
       <UsersData text={position} className={"position"} />

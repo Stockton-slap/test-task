@@ -2,7 +2,7 @@ import React from "react";
 import truncateText from "../../utils/truncateText";
 import { Tooltip } from "react-tooltip";
 
-export default function UsersData({ text, className }) {
+export default function UsersDetails({ text, className }) {
   return (
     <>
       <p
