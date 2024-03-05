@@ -154,7 +154,7 @@ img {
 }
 
 .hero {
-  background-image: url("../../../public/assets/bg.jpeg");
+  background-image: url("../../../public/assets/bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

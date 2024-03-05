@@ -4,7 +4,9 @@ import Button from "../common/Button";
 export default function Header({ handleSignUpClick }) {
   return (
     <header className="header container">
-      <img src="/assets/Logo.svg" alt="Logo" className="logo" />
+      <a href="/">
+        <img src="/assets/Logo.svg" alt="Logo" className="logo" />
+      </a>
       <div className="btn-wrapper">
         <Button
           type="button"
