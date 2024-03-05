@@ -57,11 +57,19 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
 
   if (isRegistered)
     return (
-      <div className="form__image">
+      <div>
         <h2>User successfully registered</h2>
-        <img src="/assets/success-image.svg" alt="Successfully registered" />
+        <img
+          src="/assets/success-image.svg"
+          alt="Successfully registered"
+          className="form__image"
+        />
       </div>
     );
+
+  const hasNameError = formik.errors.name && formik.touched.name && "error";
+  const hasEmailError = formik.errors.email && formik.touched.email && "error";
+  const hasPhoneError = formik.errors.phone && formik.touched.phone && "error";
 
   return (
     <>
@@ -71,7 +79,7 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
           <Input
             type="text"
             placeholder="Your name"
-            className="input-wrapper__name"
+            className={`input-wrapper__name ${hasNameError}`}
             {...formik.getFieldProps("name")}
           />
           <SignUpErrorMessage name="name" formik={formik} />
@@ -79,7 +87,7 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
           <Input
             type="email"
             placeholder="Email"
-            className="input-wrapper__email"
+            className={`input-wrapper__email ${hasEmailError}`}
             {...formik.getFieldProps("email")}
           />
           <SignUpErrorMessage name="email" formik={formik} />
@@ -87,7 +95,7 @@ export default function SignUpForm({ setIsUserRequestNeeded, setPage }) {
           <Input
             type="tel"
             placeholder="Phone"
-            className="input-wrapper__phone"
+            className={`input-wrapper__phone ${hasPhoneError}`}
             {...formik.getFieldProps("phone")}
           />
           <SignUpErrorMessage

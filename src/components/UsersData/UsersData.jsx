@@ -1,30 +1,20 @@
-import React, { useState } from "react";
-import Tooltip from "../common/Tooltip";
+import React from "react";
 import truncateText from "../../utils/truncateText";
+import { Tooltip } from "react-tooltip";
 
 export default function UsersData({ text, className }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseEnter = (e) => {
-    setIsHovered(true);
-    setCursorPosition({ x: e.clientX, y: e.clientY });
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
   return (
     <>
       <p
         className={`users-item__${className}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        data-tooltip-id="my-tooltip"
+        data-tooltip-place="top"
+        data-tooltip-content={text.length > 30 ? text : null}
       >
         {truncateText(text, 30)}
       </p>
-      {isHovered && text.length > 30 && (
-        <Tooltip text={text} position={cursorPosition} />
+      {text.length > 30 && (
+        <Tooltip id="my-tooltip" place="top" effect="solid" />
       )}
     </>
   );

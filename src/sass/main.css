@@ -112,7 +112,6 @@ button {
 img {
   display: block;
   height: auto;
-  width: 100%;
 }
 
 .header {
@@ -259,7 +258,8 @@ img {
   cursor: default;
 }
 .form__image {
-  margin-top: 80px;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 @media screen and (min-width: 768px) {
   .form {
@@ -346,8 +346,9 @@ img {
   border-style: solid;
   border-color: red;
 }
-.error:not(:first-of-type) {
-  border-width: 2px 2px 2px 0;
+
+.border {
+  border-left-width: 0;
 }
 
 .error-wrapper {

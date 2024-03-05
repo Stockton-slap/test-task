@@ -13,15 +13,15 @@ export default function SignUpPhoto({ formik }) {
     fileInputRef.current.click();
   };
 
-  const hasError = formik.errors.photo && formik.touched.photo && "error";
+  const hasError = formik.errors.photo && formik.touched.photo;
 
   return (
     <div className="photo">
       <label className="photo__label">
         <div className={`photo__container`} onClick={handleClick}>
-          <div className={`photo__btn ${hasError}`}>Upload</div>
+          <div className={`photo__btn ${hasError && "error"}`}>Upload</div>
           <div
-            className={`photo__input ${hasError} ${
+            className={`photo__input ${hasError && "error border"} ${
               fileName ? "has-file" : "no-file"
             }`}
             data-file-name={truncateText(fileName, 15)}
